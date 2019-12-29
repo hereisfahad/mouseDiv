@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mouse Div</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        cursor: none;
+      }
+      .red {
+        background-color: red;
+        position: relative;
+        width: 500px;
+        height: 500px;
+      }
+
+      .green {
+        background-color: green;
+        display: "block";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+    </style>
+    <script>
+      function drag() {
+        var cd = document.getElementById("draggable");
+        var x = document.getElementById("container");
+        var xcor = "";
+        var ycor = "";
+        xcor = window.event.clientX;
+        ycor = window.event.clientY;
+        cd.style.left = xcor + "px";
+        cd.style.top = ycor + "px";
+      }
+    </script>
+  </head>
+  <body onmousemove="drag(this)">
+    <div class="red" id="container">
+      <div class="green" id="draggable"></div>
+    </div>
+  </body>
+</html>
