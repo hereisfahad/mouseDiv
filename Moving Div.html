@@ -4,21 +4,10 @@
     <title>Mouse Div</title>
     <style>
       * {
-        margin: 0;
-        padding: 0;
+        cursor: none !important;
       }
-      body {
-        cursor: none;
-      }
-      .red {
-        background-color: red;
-        position: relative;
-        width: 500px;
-        height: 500px;
-      }
-
       .green {
-        background-color: green;
+        background-color: brown;
         display: "block";
         position: absolute;
         width: 30px;
@@ -27,21 +16,15 @@
       }
     </style>
     <script>
-      function drag() {
+      document.addEventListener("mousemove", () => drag(this));
+      function drag(event) {
         var cd = document.getElementById("draggable");
-        var x = document.getElementById("container");
-        var xcor = "";
-        var ycor = "";
-        xcor = window.event.clientX;
-        ycor = window.event.clientY;
-        cd.style.left = xcor + "px";
-        cd.style.top = ycor + "px";
+        cd.style.left = window.event.clientX + "px";
+        cd.style.top = window.event.clientY + "px";
       }
     </script>
   </head>
-  <body onmousemove="drag(this)">
-    <div class="red" id="container">
-      <div class="green" id="draggable"></div>
-    </div>
+  <body>
+    <div class="green" id="draggable"></div>
   </body>
 </html>
